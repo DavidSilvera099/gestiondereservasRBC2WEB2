@@ -34,7 +34,7 @@ export const createRoom = async (req, res) => {
 export const updateRoom = async (req, res) => {
     try {
         const { número, tipo, valor } = req.body;
-        const [result] = await pool.query('UPDATE rooms SET número = ?, tipo = ?, valor = ? WHERE codigo_habitaciones = ?', [número, tipo, valor, req.params.id]);
+        const [result] = await pool.query('UPDATE rooms SET número = ?, tipo = ?, valor = ? WHERE codigo_habitacion = ?', [número, tipo, valor, req.params.id]);
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Room not found' });
         }
