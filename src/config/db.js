@@ -1,7 +1,7 @@
-import mysql from 'mysql2';
+import {createPool} from 'mysql2/promise.js';
 import config from './config.js';
 
-const pool = mysql.createPool({
+export const pool = createPool({
     host: config.DB.HOST,
     user: config.DB.USER,
     password: config.DB.PASSWORD,
@@ -11,4 +11,3 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-export default pool.promise();
