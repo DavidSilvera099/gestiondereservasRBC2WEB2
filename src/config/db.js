@@ -6,8 +6,6 @@ export const pool = createPool({
     user: config.DB.USER,
     password: config.DB.PASSWORD,
     database: config.DB.NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+    port: config.DB_PORT
 });
 
