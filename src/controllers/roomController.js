@@ -46,7 +46,7 @@ export const updateRoom = async (req, res) => {
 
 export const deleteRoom = async (req, res) => {
     try {
-        await pool.query('DELETE FROM bookings WHERE codigo_habitacion = ? ', [id])
+        await pool.query('DELETE FROM bookings WHERE codigo_habitacion = ? ', [req.params.id])
         const [result] = await pool.query('DELETE FROM rooms WHERE codigo_habitacion = ?', [req.params.id]);
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Room not found' });
